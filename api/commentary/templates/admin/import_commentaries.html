@@ -1,0 +1,12 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div class="module">
+    <h2>Import Commentaries from JSON</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="json_file" accept=".json" required>
+        <button type="submit">Import</button>
+    </form>
+</div>
+{% endblock %}

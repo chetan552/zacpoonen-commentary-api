@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "zac-poonen-commentary-api"
+version = "0.1.0"
+description = "API for Zac Poonen Bible Commentary"
+authors = ["Chetan <chetan@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0"
+djangorestframework = "^3.16"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
