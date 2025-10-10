@@ -1,5 +1,4 @@
 {
-  "buildCommand": "python3 manage.py setup_app",
   "installCommand": "python3 -m pip install -r requirements.txt",
   "routes": [
     {
