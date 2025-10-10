@@ -1,2 +1,7 @@
-Django>=5.0
-djangorestframework>=3.16
+python = "^3.13"
+django = "^5.0"
+djangorestframework = "^3.16"
+dj-database-url = "^2.0"
+python-dotenv = "^1.0"
+psycopg2-binary = "^2.9.10"
+django-environ = "^0.12.0"
