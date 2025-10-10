@@ -1,14 +1,7 @@
 {
-  "version": 2,
   "functions": {
-    "api/__init__.py": {
-      "runtime": "python@3.12"
-    },
-    "api/commentary/views.py": {
-      "runtime": "python@3.12"
-    },
-    "api/commentary/serializers.py": {
-      "runtime": "python@3.12"
+    "api/**/*.py": {
+      "runtime": "@vercel/python@4.44.1"
     }
   },
   "buildCommand": "python manage.py migrate && python manage.py populate_books && python manage.py createsuperuser --no-input --username admin --email admin@example.com --pass 123",
