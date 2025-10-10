@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-nf9^(m@3%i96*5(ohv)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['zacpoonen-commentary-api-059fc26e47ab.herokuapp.com', '127.0.0.1', '.vercel.app']
 
 
 # Application definition
