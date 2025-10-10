@@ -33,7 +33,6 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
