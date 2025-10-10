@@ -13,7 +13,7 @@ class Book(models.Model):
 class Commentary(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='commentaries')
     chapter = models.IntegerField()
-    verse = models.IntegerField()
+    verse = models.CharField(max_length=10)
     text = models.TextField()
 
     def __str__(self):
