@@ -28,7 +28,7 @@ class Command(BaseCommand):
             ('Psalms', 'Psa'),
             ('Proverbs', 'Pro'),
             ('Ecclesiastes', 'Ecc'),
-            ('Song of Solomon', 'Son'),
+            ('Song Of Solomon', 'SS'),
             ('Isaiah', 'Isa'),
             ('Jeremiah', 'Jer'),
             ('Lamentations', 'Lam'),
