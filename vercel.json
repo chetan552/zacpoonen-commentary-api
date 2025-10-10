@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.py": {
-      "runtime": "@vercel/python@4.44.1"
+      "runtime": "vercel-python@3.12"
     }
   },
   "buildCommand": "python manage.py migrate && python manage.py populate_books && python manage.py createsuperuser --no-input --username admin --email admin@example.com --pass 123",
