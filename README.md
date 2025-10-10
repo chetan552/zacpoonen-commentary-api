@@ -143,6 +143,15 @@ print(data)
 
 This project is open source. See LICENSE file for details.
 
+## Deployment to Vercel
+
+1. **Connect to Vercel**: Import your GitHub repository to Vercel
+2. **Environment Variables**: Set the following in Vercel's environment variables:
+   - `DJANGO_SECRET_KEY`: Generate a new secret key for production
+   - `DJANGO_DEBUG`: Set to `false` for production
+3. **Deploy**: Vercel will automatically detect the `vercel.json` configuration and deploy the Django app
+4. **Database**: SQLite database is included in the deployment. For larger datasets, consider using Vercel Postgres or another database service.
+
 ## Contributing
 
 1. Fork the repository
