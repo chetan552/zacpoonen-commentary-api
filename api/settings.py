@@ -31,7 +31,11 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-nf9^(m@3%i96*5(ohv)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '.herokuapp.com']
+# Allow configuring hosts via env while defaulting to common deploy targets (incl. Render).
+ALLOWED_HOSTS = os.getenv(
+    'DJANGO_ALLOWED_HOSTS',
+    '127.0.0.1 .vercel.app .herokuapp.com .onrender.com'
+).split()
 
 # Application definition
 
