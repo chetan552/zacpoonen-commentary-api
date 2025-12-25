@@ -53,6 +53,24 @@ This project provides a RESTful API to access Bible commentaries by Zac Poonen. 
 
 The API will be available at `http://127.0.0.1:8000/`.
 
+## Docker Usage
+
+Container images make it easy to run the API without installing Python or Poetry locally.
+
+### Build
+
+```bash
+docker build -t zacpoonen-commentary-api .
+```
+
+### Run with Docker Compose
+
+```bash
+docker compose up --build
+```
+
+The compose file now bootstraps only the Django API container. Provide your Supabase (or other external) Postgres connection string via `DATABASE_URL` in `.env`—the container automatically loads that file for all environment variables, so you can also place values such as `DJANGO_SECRET_KEY`, `DJANGO_DEBUG`, and `DJANGO_ALLOWED_HOSTS` there. Because the container runs migrations before starting Gunicorn, the API is available at `http://127.0.0.1:8000/` as soon as the remote database is reachable.
+
 ## API Endpoints
 
 ### Get Commentaries
@@ -77,6 +95,20 @@ Response example:
   ...
 ]
 ```
+
+### Search Commentaries
+Search commentary text (plus book name, abbreviation, and verse) with keyword + topical helpers.
+
+- **Endpoint**: `GET /api/search/`
+- **Parameters**:
+  - `keyword`: Main search terms (space-separated); numeric values also match chapter numbers
+  - `match`: `or` (default) or `and` to control whether all terms must match
+  - `topics`: Comma-separated topic names to expand (built-in map: grace, faith, love, repentance, forgiveness)
+  - `expand_topics`: `true|false` (default `true`) to expand `keyword` tokens that match topic names into their synonyms
+- **Examples**:
+  - `GET /api/search/?keyword=grace`
+  - `GET /api/search/?keyword=faith love&match=and`
+  - `GET /api/search/?topics=grace,faith`
 
 ### Import Commentaries
 Import commentary data via JSON payload.
