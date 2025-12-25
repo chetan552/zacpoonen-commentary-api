@@ -11,7 +11,6 @@ This project provides a RESTful API to access Bible commentaries by Zac Poonen. 
 - **Python**: 3.12+
 - **Django**: 5.0+
 - **Django REST Framework**: 3.16+
-- **Poetry**: For dependency management
 
 ## Installation & Setup
 
@@ -21,32 +20,29 @@ This project provides a RESTful API to access Bible commentaries by Zac Poonen. 
    cd zac-poonen-commentary-api
    ```
 
-2. **Install dependencies using Poetry**:
+2. **Install dependencies**:
    ```bash
-   poetry install
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
    ```
 
-3. **Activate the virtual environment**:
-   ```bash
-   poetry shell
-   ```
-
-4. **Run database migrations**:
+3. **Run database migrations**:
    ```bash
    python manage.py migrate
    ```
 
-5. **Populate books data**:
+4. **Populate books data**:
    ```bash
    python manage.py populate_books
    ```
 
-6. **Import commentary data (optional, if you have a JSON file)**:
+5. **Import commentary data (optional, if you have a JSON file)**:
    ```bash
    python manage.py import_commentaries path/to/commentaries.json
    ```
 
-7. **Run the development server**:
+6. **Run the development server**:
    ```bash
    python manage.py runserver
    ```
@@ -55,7 +51,7 @@ The API will be available at `http://127.0.0.1:8000/`.
 
 ## Docker Usage
 
-Container images make it easy to run the API without installing Python or Poetry locally.
+Container images make it easy to run the API without installing Python locally.
 
 ### Build
 

@@ -34,7 +34,7 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
 # Allow configuring hosts via env while defaulting to common deploy targets (incl. Render).
 ALLOWED_HOSTS = os.getenv(
     'DJANGO_ALLOWED_HOSTS',
-    '127.0.0.1 .vercel.app .herokuapp.com .onrender.com'
+    '127.0.0.1 .vercel.app .herokuapp.com .onrender.com localhost raspberrypi.local 10.0.0.24'
 ).split()
 
 # Application definition
