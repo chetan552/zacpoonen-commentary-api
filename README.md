@@ -93,7 +93,7 @@ Response example:
 ```
 
 ### Search Commentaries
-Search commentary text (plus book name, abbreviation, and verse) with keyword + topical helpers.
+Search commentary text (plus book name, abbreviation, and verse) with keyword + topical helpers. Returns a snippet (not full text) for faster responses.
 
 - **Endpoint**: `GET /api/search/`
 - **Parameters**:

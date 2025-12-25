@@ -13,7 +13,7 @@ from django.db.models import Q
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 import json
 from .models import Commentary, Book
-from .serializers import CommentarySerializer
+from .serializers import CommentarySerializer, CommentarySearchSerializer
 
 # Built-in topical keywords for simple expansion
 TOPIC_MAP = {
@@ -50,7 +50,7 @@ class CommentaryListView(ListAPIView):
         return queryset
 
 class CommentarySearchView(ListAPIView):
-    serializer_class = CommentarySerializer
+    serializer_class = CommentarySearchSerializer
 
     def get_queryset(self):
         keyword_param = self.request.query_params.get('keyword', '').strip()
@@ -126,6 +126,15 @@ class CommentarySearchView(ListAPIView):
                 seen.add(term)
 
         return unique_terms
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['terms'] = self._gather_terms(
+            self.request.query_params.get('keyword', '').strip(),
+            self.request.query_params.get('topics', ''),
+            self.request.query_params.get('expand_topics', 'true').lower() != 'false'
+        )
+        return context
 
 class ImportCommentariesView(APIView):
     def post(self, request):
